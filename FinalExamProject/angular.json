@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Final-Project": {
+    "FinalExamProject": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Final-Project",
+            "outputPath": "wwwroot",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -57,18 +57,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Final-Project:build"
+            "browserTarget": "FinalExamProject:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Final-Project:build:production"
+              "browserTarget": "FinalExamProject:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Final-Project:build"
+            "browserTarget": "FinalExamProject:build"
           }
         },
         "test": {
@@ -102,7 +102,7 @@
         }
       }
     },
-    "Final-Project-e2e": {
+    "FinalExamProject-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +111,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Final-Project:serve"
+            "devServerTarget": "FinalExamProject:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Final-Project:serve:production"
+              "devServerTarget": "FinalExamProject:serve:production"
             }
           }
         },
@@ -131,5 +131,5 @@
       }
     }
   },
-  "defaultProject": "Final-Project"
+  "defaultProject": "FinalExamProject"
 }
