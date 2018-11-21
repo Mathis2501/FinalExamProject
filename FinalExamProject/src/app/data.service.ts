@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as Tesseract from 'tesseract.js';
+import * as Tesseract from '../../node_modules/tesseract.js/dist/tesseract.js';
 
 @Injectable({
   providedIn: 'root'
