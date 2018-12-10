@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as Tesseract from '../../node_modules/tesseract.js/dist/tesseract.js';
-import * as cv from 'opencv4nodejs';
+//import * as cv from 'opencv4nodejs';
 
 @Injectable({
   providedIn: 'root'
