@@ -14,9 +14,8 @@ selectedFile: File = null;
   ngOnInit() {
   }
 
-  onFIleSelected(event){
+  onFileSelected(event){
     this.selectedFile = <File>event.target.files[0];
-
   }
 
   UploadFile(){
@@ -27,7 +26,8 @@ selectedFile: File = null;
       })
     }
     fd.append('image', this.selectedFile, this.selectedFile.name)
-    this.httpclient.post('https://northeurope.api.cognitive.microsoft.com/vision/v1.0/ocr?language=unk&detectOrientation =true', this.selectedFile, httpOptions).subscribe(r => {console.log(r)});
+    this.httpclient.post<any>('https://northeurope.api.cognitive.microsoft.com/vision/v2.0/ocr?language=unk&detectOrientation =true', fd, httpOptions)
+      .subscribe(response => {console.log(response)});
   }
 
 }
