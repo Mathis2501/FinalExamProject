@@ -8,8 +8,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class HomeViewComponent implements OnInit {
 selectedFile: File = null;
+wordlist: string[];
 
-  constructor(private httpclient: HttpClient) { }
+  constructor(private httpclient: HttpClient) {
+    this.wordlist = [];
+   }
 
   ngOnInit() {
   }
@@ -35,6 +38,7 @@ selectedFile: File = null;
           region.lines.forEach(line => {
             line.words.forEach(word => {
               console.log(word.text);
+              this.wordlist.push(word.text);
             });
           });
         });
