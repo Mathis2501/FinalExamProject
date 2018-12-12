@@ -18,6 +18,39 @@ wordlist: string[];
   }
 
   onFileSelected(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = document.createElement('img');
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0);
+        const MAX_WIDTH = 3200;
+        const MAX_HEIGHT = 3200;
+        let width = img.width;
+        let height = img.height;
+
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height *= MAX_WIDTH / width;
+            width = MAX_WIDTH;
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width *= MAX_HEIGHT / height;
+            height = MAX_HEIGHT;
+          }
+        }
+        canvas.width = width;
+        canvas.height = height;
+        const secondaryCtx = canvas.getContext('2d');
+        secondaryCtx.drawImage(img, 0, 0, width, height);
+        const dataurl = canvas.toDataURL('image/png');
+      };
+      img.src = event.target.result;
+    };
+    reader.readAsDataURL(file);
     this.selectedFile = <File>event.target.files[0];
   }
 
