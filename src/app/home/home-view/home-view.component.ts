@@ -17,7 +17,7 @@ wordlist: string[];
   ngOnInit() {
   }
 
-  onFileSelected(event) {
+  onFileSelected(event: any) {
     const MAX_WIDTH = 3200;
     const MAX_HEIGHT = 3200;
     const fileName = event.target.files[0].name;
@@ -27,7 +27,8 @@ wordlist: string[];
     reader.onload = event => {
         const img = new Image();
         // result exists typescript is wrong in assuming target is type EventTarget it is instead type FileReader
-        img.src = event.target.result;
+        const target = <any>event.target;
+        img.src = target.result;
         img.onload = () => {
                 const canvas = document.createElement('canvas');
                 let width = img.width;
@@ -46,8 +47,20 @@ wordlist: string[];
                 canvas.width = width;
                 canvas.height = height;
                 const ctx = canvas.getContext('2d');
-                // img.width and img.height will give the original dimensions
                 ctx.drawImage(img, 0, 0, width, height);
+                const imageData = ctx.getImageData(width, height, img.width, img.height)
+                const data = imageData.data;
+                for (let i = 0; i < data.length; i += 4) {
+                  const brightness = 0.34 * data[i] + 0.5 * data[i + 1] + 0.16 * data[i + 2];
+                  // red
+                  data[i] = brightness;
+                  // green
+                  data[i + 1] = brightness;
+                  // blue
+                  data[i + 2] = brightness;
+                }
+                ctx.putImageData(imageData, width, height);
+                debugger;
                 ctx.canvas.toBlob((blob) => {
                     this.selectedFile = new File([blob], fileName, {
                         type: 'image/png',
@@ -68,7 +81,7 @@ wordlist: string[];
     };
     fd.append('image', this.selectedFile, this.selectedFile.name);
     // tslint:disable-next-line:max-line-length
-    this.httpclient.post<any>('https://northeurope.api.cognitive.microsoft.com/vision/v2.0/ocr?language=unk&detectOrientation =true', fd, httpOptions)
+    this.httpclient.post<any>('https://northeurope.api.cognitive.microsoft.com/vision/v2.0/ocr?language=da&detectOrientation =true', fd, httpOptions)
     .subscribe(
       (val) => {
         console.log(val);
