@@ -27,7 +27,7 @@ resultList;
     // this.ScanNumberPlate();
   }
 
-  ScanNummerPlade(selectedFile: File){
+  ScanNummerPlade(selectedFile: File) {
    this.resultList = this.dataService.ScanNumberPlate(selectedFile);
   }
 
