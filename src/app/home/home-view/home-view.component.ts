@@ -83,6 +83,12 @@ resultList;
 
   DummyScanNumberPlate() {
     this.wordList.push('test');
+    this.wordList.push('test');
+    this.wordList.push('test');
+    this.wordList.push('test');
+    this.resultList.push(this.wordList);
+    this.resultList.push(this.wordList);
+    this.resultList.push(this.wordList);
     this.resultList.push(this.wordList);
   }
 
