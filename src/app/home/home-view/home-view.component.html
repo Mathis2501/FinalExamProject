@@ -2,6 +2,7 @@
 <input class="inputfile" type="file" name="file" id="file" accept="image/*" capture (change)="onFileSelected($event)">
 <body>
   <header class="w3-container w3-theme w3-padding-24" id="myHeader">
+<header class="w3-container w3-theme w3-padding-24" id="myHeader">
     <div class="w3-center">
       <h3>Velkommen</h3>
       <p>Du kan ved at trykke på den nedenstående knap tage et billede som derefter vil blive skannet for biler heriblandt nummerplade, mærke, model, farve, og alder</p>
@@ -11,21 +12,6 @@
     </div>
   </header>
   <div *ngFor="let wordList of resultList">
-    <div class="w3-large w3-animate-bottom w3-padding">
-      <div class="w3-card w3-container w3-padding-16">
-        <div class="w3-half">
-            <div *ngFor="let word of wordList">
-              <ul>
-                <app-word [wordText]=word></app-word>
-              </ul>
-            </div>
-        </div>
-        <div class="w3-half">
-          <button class="w3-btn w3-black w3-hover-dark-grey w3-right">
-            Find Forsikring
-          </button>       
-        </div>
-      </div>
-    </div>
-  </div>
-  
+  <app-car-box [wordList]="wordList"></app-car-box>
+</div>
+
