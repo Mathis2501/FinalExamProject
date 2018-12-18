@@ -60,7 +60,6 @@ wordlist: string[];
                   data[i + 2] = brightness;
                 }
                 ctx.putImageData(imageData, width, height);
-                debugger;
                 ctx.canvas.toBlob((blob) => {
                     this.selectedFile = new File([blob], fileName, {
                         type: 'image/png',
