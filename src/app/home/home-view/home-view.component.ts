@@ -62,7 +62,7 @@ wordlist: string[];
                 ctx.putImageData(imageData, width, height);
                 ctx.canvas.toBlob((blob) => {
                     this.selectedFile = new File([blob], fileName, {
-                        type: 'image/png',
+                        type: 'image/jpg',
                         lastModified: Date.now()
                     });
                 }, 'image/png', 1);
