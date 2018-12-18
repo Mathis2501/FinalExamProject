@@ -1,11 +1,12 @@
-
+<!--this input is necessary to take a picture from the users phone-->
+<input class="inputfile" type="file" name="file" id="file" accept="image/*" capture (change)="onFileSelected($event)">
 <body>
   <header class="w3-container w3-theme w3-padding-24" id="myHeader">
     <div class="w3-center">
       <h3>Velkommen</h3>
       <p>Du kan ved at trykke på den nedenstående knap tage et billede som derefter vil blive skannet for biler heriblandt nummerplade, mærke, model, farve, og alder</p>
       <div class="w3-padding-16">
-        <input class="w3-btn w3-dark-grey w3-hover-light-grey" type="file" accept="image/*" capture (change)="onFileSelected($event)" style="font-weight:600;">
+        <label class="w3-btn w3-dark-grey w3-hover-light-grey" for="file"><img src="/assets/icons/iconmonstr-photo-camera-4.svg" /> Tag Billede</label>
       </div>
     </div>
   </header>
