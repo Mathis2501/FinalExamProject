@@ -1,0 +1,16 @@
+<div class="w3-large w3-animate-bottom w3-padding">
+  <div class="w3-card w3-container w3-padding-16">
+    <div class="w3-half">
+        <div *ngFor="let word of wordList">
+          <ul>
+            <app-word [wordText]=word></app-word>
+          </ul>
+        </div>
+     </div>
+     <div class="w3-half">
+       <button class="w3-btn w3-black w3-hover-dark-grey w3-right">
+          Find Forsikring
+       </button>       
+    </div>
+  </div><!-- container-end-->
+</div><!-- card-end-->
