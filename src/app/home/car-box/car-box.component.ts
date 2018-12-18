@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-car-box',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./car-box.component.css']
 })
 export class CarBoxComponent implements OnInit {
-  wordList: string[];
+ @Input() wordList: string[];
 
   constructor() {
    }
