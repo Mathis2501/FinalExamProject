@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class DataService {
   wordList: string[];
-  resultList;
+  resultList = [];
 
   constructor(private httpclient: HttpClient) { }
 

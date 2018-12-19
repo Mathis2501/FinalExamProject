@@ -23,12 +23,12 @@ resultList;
     this.resultList = [];
     this.wordList = [];
     this.selectedFile = event.target.files[0];
-    this.DummyScanNumberPlate();
-    // this.ScanNumberPlate();
+    // this.DummyScanNumberPlate();
+    this.ScanNumberPlate();
   }
 
-  ScanNummerPlade(selectedFile: File) {
-   this.resultList = this.dataService.ScanNumberPlate(selectedFile);
+  ScanNumberPlate() {
+   this.resultList = this.dataService.ScanNumberPlate(this.selectedFile);
   }
 
   DummyScanNumberPlate() {

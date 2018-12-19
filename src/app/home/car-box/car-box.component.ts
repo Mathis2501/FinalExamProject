@@ -14,4 +14,8 @@ export class CarBoxComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSelect(wordList) {
+    alert('du valgte ' + wordList[0]);
+  }
+
 }
