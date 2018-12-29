@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-box',
@@ -8,14 +9,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CarBoxComponent implements OnInit {
  @Input() wordList: string[];
 
-  constructor() {
+  constructor(private router: Router) {
    }
 
   ngOnInit() {
   }
 
   onSelect(wordList) {
-    alert('du valgte ' + wordList[0]);
+    this.router.navigate(['forsikring'], { queryParams: { infoList: wordList } });
   }
 
 }

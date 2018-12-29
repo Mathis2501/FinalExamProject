@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ArrayType } from '@angular/compiler';
 import { DataService } from 'src/app/shared/Services/data.service';
 
 @Component({
@@ -23,8 +22,8 @@ resultList;
     this.resultList = [];
     this.wordList = [];
     this.selectedFile = event.target.files[0];
-    // this.DummyScanNumberPlate();
-    this.ScanNumberPlate();
+    this.DummyScanNumberPlate();
+    // this.ScanNumberPlate();
   }
 
   ScanNumberPlate() {
